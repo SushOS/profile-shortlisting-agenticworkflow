@@ -1,0 +1,7 @@
+python-dotenv==1.0.1
+google-generativeai==0.3.2     # Gemini 2.5 SDK
+langgraph==0.0.16              # Lightweight agent-orchestration
+serpapi==0.1.5                 # Ethical LinkedIn search wrapper
+requests==2.32.3
+pandas==2.2.2
+tqdm==4.66.4
