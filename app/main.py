@@ -1,19 +1,3 @@
-# import argparse
-# from app.orchestrator import Orchestration
-
-# def main():
-#     parser = argparse.ArgumentParser(description="Customer short-listing agent")
-#     parser.add_argument("prompt", type=str, help="Natural-language requirement")
-#     args = parser.parse_args()
-
-#     orchestrator = Orchestration()
-#     result = orchestrator.run(args.prompt)
-#     print(result)
-
-# if __name__ == "__main__":
-#     main()
-
-
 import argparse
 import logging
 from app.orchestrator import Orchestration
@@ -40,28 +24,28 @@ def main():
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
     
-    print("🚀 Starting Profile Shortlisting with Conditional Routing...")
-    print(f"📝 Query: {args.prompt}")
-    print(f"🔄 Max Retries: {args.max_retries}")
+    print("Starting Profile Shortlisting with Conditional Routing...")
+    print(f"Query: {args.prompt}")
+    print(f"Max Retries: {args.max_retries}")
     print("-" * 60)
     
     orchestrator = Orchestration()
     result = orchestrator.run(args.prompt)
     
     print("\n" + "="*60)
-    print("🎯 FINAL RESULT:")
+    print("FINAL RESULT:")
     print("="*60)
     
     if isinstance(result, dict):
-        print(f"📊 Result: {result.get('result', 'No result')}")
-        print(f"🛤️  Processing Path: {' -> '.join(result.get('routing_history', []))}")
-        print(f"🔄 Retry Count: {result.get('retry_count', 0)}")
+        print(f"Result: {result.get('result', 'No result')}")
+        print(f"Processing Path: {' -> '.join(result.get('routing_history', []))}")
+        print(f"Retry Count: {result.get('retry_count', 0)}")
         
         if result.get('error'):
-            print(f"⚠️  Error: {result['error']}")
+            print(f"Error: {result['error']}")
         
         if result.get('quality_metrics'):
-            print(f"📈 Quality Metrics: {result['quality_metrics']}")
+            print(f"Quality Metrics: {result['quality_metrics']}")
     else:
         print(result)
 
